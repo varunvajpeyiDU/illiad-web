@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Pragma" content="no-cache">
+      <meta charset="utf-8">
+      <title>ILLiad - Transaction <#PARAM name="TransactionNumber"></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="css/illiad_du.css"/>
+      <link rel="apple-touch-icon" href="iphone-icon.png" />
+   </head>
+   <body>
+      <nav class="navbar navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <img src="images/du-logo.png" class="logo" width="100px" style="float:left; margin-right:10px; margin-top:10px;">
+               <a class="navbar-brand" href="#">Interlibrary Loan</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="http://du.edu/directory/">Directory</a></li>
+                  <li><a href="http://du.edu/utilities/az/index.html">A-Z</a></li>
+                  <li><a href="http://du.edu/utilities/sitemap/index.html">Site Map</a></li>
+               </ul>
+               <form class="navbar-form navbar-right" action="illiad.dll" name="Search" method="post">
+                  <input type="hidden" name="IlliadForm" value="Search" />
+                  <input id="SessionID" name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+                  <input class="form-control" id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria" placeholder="Search..." />&nbsp;	
+				  <input type="submit" name="SubmitButton" value="Go!" class="btn btn-default" />&nbsp;
+                  <input name="SearchType" type="radio" id="SearchTypeActive" value="Active" checked /><label for="SearchTypeActive">&nbsp;<span class="radio-btn">Active</span></label>&nbsp;
+                  <input name="SearchType" type="radio" id="SearchTypeAll" value="All" /><label for="SearchTypeAll">&nbsp;<span class="radio-btn">All</span></label>&nbsp;&nbsp;
+               </form>
+            </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+			   <li><a href="#" title="User" class="active">
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;  
+                  <strong><#PARAM name="Username"></strong>
+                  </a>
+               </li>
+			   <li role="separator" class="divider"></li>
+               <!-- class="active" -->
+               <li><a href="<#ACTION action="10" form="10">" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Home</a></li>
+               <li class="first"><a href="<#ACTION action="10" form="22">" title="Article"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Article Request</a></li>
+               <li><a href="<#ACTION action="10" form="21">" title="Book"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Book Request</a></li>
+               <li><a href="<#ACTION action="10" form="23">" title="Book Chapter"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span class="glyphicon glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Book Chapter Request</a></li>
+               <li class="last"><a href="<#ACTION action="10" form="29">"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon glyphicon-th" aria-hidden="true"></span>&nbsp;&nbsp;Other (Free Text)</a></li>
+               <li><a href="<#ACTION action="10" form="64">"><span class="glyphicon glyphicon glyphicon-download-alt" aria-hidden="true"></span>&nbsp;&nbsp;Electronically Received Articles</a></li>
+			   <li><a href="<#ACTION action="10" form="66">"><span class="glyphicon glyphicon glyphicon-open" aria-hidden="true"></span>&nbsp;&nbsp;Checked Out Items</a></li>
+			   <!--<li class="first"><a href="<#ACTION action="10" form="62">">Outstanding Requests</a></li>-->
+               <li role="separator" class="divider"></li>
+			   <li><a href="<#ACTION action="99">" title="Logoff">
+                  <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;  
+                  <strong>Logoff</strong>
+                  </a>
+               </li>
+			   <li role="separator" class="divider"></li>
+            </ul>
+			<br>
+			<div>
+            <p>
+               <small>Copyright &copy; 2015 <a href="http://www.atlas-sys.com">Atlas Systems, Inc.</a> All Rights Reserved.</small>
+            </p>
+			</div>
+         </div>
+         <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+            <form id="BookChapterRequest" class="illiad-form-background" action="illiad.dll" method="post" name="BookChapterRequest">
+				<input type="hidden" name="ILLiadForm" value="OtherRequest">
+				<input type="hidden" name="RequestType" value="Loan">
+				<input type="hidden" name="Username" value="<#PARAM name="Username">">
+				<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+			<div class="row">	
+				<div class="col-md-6">
+					<div class="illiad-form-header"><strong>Other Request</strong></div>
+				</div>
+				<div class="col-md-6">
+					<div><strong><span class="illiad-form-required">*</span></strong> Indicates required field</div>
+				</div>
+			</div>
+			<hr>
+			<#STATUS>
+			<h4>Describe the item you want</h4>	
+			<hr>	
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-6">
+						<label for="Other">
+							<span class="illiad-form-required">*</span>
+							<span class="<#ERROR name="ERROROther">">
+								<span class="illiad-form-label">Citation</span><br />
+								<small class="illiad-form-note">Please paste any citation information you have here.</small>
+							</span>	
+						</label>
+					</div>
+					<div class="col-md-6">		
+						<textarea id="Other" name="Other" type="text" rows="4" cols="60" class="form-control" tabindex="2" required><#PARAM name="Other"></textarea>					
+					</div>
+				</div>	
+			</div>	
+			<hr>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-6">
+						<label for="NotWantedAfter">
+							<span class="field">
+								<span class="illiad-form-required">*</span>
+								<span class="<#ERROR name="ERRORNotWantedAfter">">
+									<span class="illiad-form-label">Not Wanted After Date</span>
+								</span><br />
+								<span class="illiad-form-note">(MM/DD/YYYY)</span>
+							</span>
+						</label>
+					</div>
+					<div class="col-md-6">
+						<input id="NotWantedAfter" name="NotWantedAfter" type="text" class="form-control input-md" tabindex="12" value="<#PARAM name="NotWantedAfter">">
+					</div>
+				</div>
+			</div>
+			<hr>	
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-6">
+						<label for="AcceptNonEnglish">
+							<span class="field">
+								<span class="<#ERROR name="ERRORAcceptNonEnglish">">
+									<span class="illiad-form-label">Will you accept the item in a language other than English?</span>
+								</span><br />
+								<span class="illiad-form-note">If yes, specify acceptable languages in the notes field.</span>
+							</span>
+						</label>
+					</div>
+					<div class="col-md-6">
+						<select id="AcceptNonEnglish" name="AcceptNonEnglish" class="form-control" tabindex="13">
+							<option selected><#PARAM name="AcceptNonEnglish"></option>
+							<option>No</option>
+							<option>Yes</option>
+						</select><br />
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-6">
+						<label for="Notes">
+						<span class="field">
+							<span class="<#ERROR name="ERRORNotes">">
+								<span class="illiad-form-label">Notes</b>
+							</span><br />
+							<span class="illiad-form-note">Put any information here that may help us find the item, as well as any other pertinent information.</span>
+						</span>
+					</label>
+					</div>
+					<div class="col-md-6">
+						<textarea id="Notes" name="Notes" rows="4" cols="60" class="form-control" tabindex="15"><#PARAM name="Notes"></textarea>
+					</div>
+				</div>
+			</div>
+			<hr>	
+			<#INCLUDE filename="include_request_cited.html">          	
+            <#INCLUDE filename="include_request_buttons.html">
+			</form>		
+         </div>
+      </div>
+	  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+	  <script>
+		$('#BookChapterRequest').validate();
+	  </script>
+   </body>
+</html>

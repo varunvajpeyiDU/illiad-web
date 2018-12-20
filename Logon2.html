@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Pragma" content="no-cache">
+      <title>University of Denver Interlibrary Loan</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link type="text/css" rel="stylesheet" href="css/illiad_du.css" />
+      <link rel="apple-touch-icon" href="iphone-icon.png" />
+   </head>
+   <body>
+      <nav class="navbar navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <img src="images/du-logo.png" class="logo" width="100px" style="float:left; margin-right:10px; margin-top:10px;">
+               <a class="navbar-brand" href="#">Interlibrary Loan</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="http://du.edu/directory/">Directory</a></li>
+                  <li><a href="http://du.edu/utilities/az/index.html">A-Z</a></li>
+                  <li><a href="http://du.edu/utilities/sitemap/index.html">Site Map</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="container">
+         <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <br>
+            <p class="alert alert-info">
+               <strong>PLEASE NOTE: Requests made through Interlibrary Loan between December 25th and January 1st will be processed after January 2nd. 
+               The DU ID and passcode is the same login you use to log into DU PioneerWeb.</strong>
+            </p>
+            <div class="panel panel-default" >
+               <div class="panel-heading">
+                  <div class="panel-title">ILLiad Logon</div>
+                  <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+               </div>
+               <div style="padding-top:15px" class="panel-body" >
+                  <!--<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>-->
+				  <div id="status" class="alert alert-danger"><#STATUS></div>
+                  <form action="<#DLL>" method="post" name="Logon" class="form-horizontal">
+                     <input type="hidden" name="ILLiadForm" value="Logon">
+                     <div id="logonform">
+                        <label for="username"></label>
+                        <div class="input-group">
+                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                           <input id="username" name="Username" type="text" class="form-control" tabindex="1" placeholder="DU ID" />
+                        </div>
+                        <label for="password"></label>
+                        <div class="input-group">
+                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                           <input id="password" name="Password" type="password" class="form-control" tabindex="2" placeholder="Passcode" />
+                        </div>
+                        <div style="margin-top:35px" class="form-group">
+                           <div class="col-sm-12 controls">
+                              <input id="btn-login" type="submit" name="SubmitButton" value="Logon to ILLiad" class="btn btn-md btn-success" tabindex="12" /><br />
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <p>
+               If you need assistance please contact the Interlibrary Loan Department at <br>303-871-2497 or <a href="mailto:ill_dept@du.edu">ill_dept@du.edu</a>
+            </p>
+            <hr>
+            <p>
+               <small>Copyright &copy; 2015 <a href="http://www.atlas-sys.com">Atlas Systems, Inc.</a> All Rights Reserved.</small>
+            </p>
+         </div>
+      </div>
+      <body>
+</html>
